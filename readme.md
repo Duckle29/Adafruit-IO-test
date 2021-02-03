@@ -9,3 +9,11 @@ and the [Adafruit secure esp8266 example](https://github.com/adafruit/Adafruit_M
 
 It's made to work with platformIO.  
 The python script will have to be modified if used with Arduino (path to ar.exe needs to be updated)
+
+To use this you need:
+ - platformio with the esp8266 platform installed
+ - openssl installed and on the path
+
+1: run the `get_moz_certs.py` script. It should get a bunch of `.der` files and put them into `data/` and then combine them in a single binary
+2: run the uploadfs target `pio run --target uploadfs` or use the "Upload Filesystem Image" option under `PROJECT TASKS -> env:d1_mini -> Platform -> Upload Filesystem Image`
+3: upload the example (after filling in your secrets in secrets.hpp) `pio run -target upload`
